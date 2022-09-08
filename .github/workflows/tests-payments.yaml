@@ -1,5 +1,7 @@
 name: tests-payments
 
+env:
+  STRIPE_KEY: ${{ secrets.STRIPE_KEY }}
 # Controls when the workflow will run
 on:
   pull_request:
@@ -12,7 +14,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Running tests
-        env:
-          STRIPE_KEY: ${{ secrets.STRIPE_KEY }}
-        run: cd payments && npm install && npm run test:ci
+      - run: cd payments && npm install && npm run test:ci
