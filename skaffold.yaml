@@ -27,7 +27,7 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: us.gcr.io/ticketing-com-359312/tickets
+    - image: jangles/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -35,7 +35,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-com-359312/orders
+    - image: jangles/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -43,7 +43,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-com-359312/expiration
+    - image: jangles/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -51,7 +51,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-com-359312/payments
+    - image: jangles/payments
       context: payments
       docker:
         dockerfile: Dockerfile
