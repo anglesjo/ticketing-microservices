@@ -4,13 +4,14 @@ deploy:
   kubectl:
     manifests:
       - ./infra/k8s/*
+      - ./infra/k8s-dev/*
 build:
   # local:
   #   push: false
   googleCloudBuild:
     projectId: ticketing-com-359312
   artifacts:
-    - image: us.gcr.io/ticketing-com-359312/auth
+    - image: jangles/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -18,7 +19,7 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-com-359312/client
+    - image: jangles/client
       context: client
       docker:
         dockerfile: Dockerfile
